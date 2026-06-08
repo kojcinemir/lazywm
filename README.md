@@ -70,8 +70,6 @@ Configuration files are stored in the `Config` folder beside the executable:
 - `AppSwitcherConfig.toml`: application switcher dimensions and styling
 - `FloatingRulesConfig.toml`: persistent tiled and floating application rules
 
-Press `ALT+CTRL+R` to reload configuration while LazyWM is running.
-
 ---
 
 Copyright (c) 2026 Emir Kojcin. All rights reserved.
