@@ -1,0 +1,365 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="LazyWM documentation - a fast, configurable tiling window manager for Windows 11.">
+  <meta name="theme-color" content="#10110f">
+  <title>LazyWM Documentation</title>
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="page-grid" aria-hidden="true"></div>
+
+  <aside class="sidebar" id="sidebar">
+    <a class="brand" href="#top" aria-label="LazyWM home">
+      <span class="brand-mark">
+        <span></span><span></span><span></span>
+      </span>
+      <span>
+        <strong>LazyWM</strong>
+        <small></small>
+      </span>
+    </a>
+
+    <nav class="nav" aria-label="Documentation">
+      <p class="nav-label">Start</p>
+      <a href="#overview" class="active">Overview</a>
+      <a href="#install">Install &amp; launch</a>
+      <a href="#first-steps">First steps</a>
+
+      <p class="nav-label">Using LazyWM</p>
+      <a href="#features">Features</a>
+      <a href="#hotkeys">Hotkeys</a>
+      <a href="#workspaces">Workspaces</a>
+      <a href="#stacked-mode">Stacked mode</a>
+
+      <p class="nav-label">Configuration</p>
+      <a href="#configuration">Config overview</a>
+      <a href="#workspace-config">Workspace</a>
+      <a href="#indicator-config">Indicator</a>
+      <a href="#appearance-config">Appearance</a>
+      <a href="#app-rules">Application rules</a>
+    </nav>
+
+    <div class="sidebar-project">
+      <p class="nav-label">Project</p>
+      <a href="https://github.com/kojcinemir/lazywm" target="_blank" rel="noopener noreferrer">
+        GitHub <span>↗</span>
+      </a>
+      <a href="https://github.com/kojcinemir/lazywm/releases" target="_blank" rel="noopener noreferrer">
+        Releases <span>↗</span>
+      </a>
+    </div>
+
+    <div class="sidebar-footer">
+      <span class="status-dot"></span>
+      Supporting Windows 11/10
+    </div>
+  </aside>
+
+  <header class="mobile-header">
+    <a class="mobile-brand" href="#top">LazyWM</a>
+    <button class="menu-button" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="sidebar">
+      <span></span><span></span>
+    </button>
+  </header>
+
+  <main id="top">
+    <section class="hero" id="overview">
+      <div class="hero-copy">
+        <div class="eyebrow"><span></span> The most complete tiling window manager for Windows</div>
+        <h1>Your windows.<br><em>Finally in order.</em></h1>
+        <p class="hero-lead">LazyWM is a fast, keyboard-driven tiling window manager made for Windows 11. It keeps your desktop organized while staying out of your way.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#install">Get started <span>→</span></a>
+          <a class="button secondary" href="#configuration">Explore configuration</a>
+        </div>
+        <div class="hero-meta">
+          <span><b>01</b> Native .NET</span>
+          <span><b>02</b> TOML config</span>
+          <span><b>03</b> Multi-monitor</span>
+        </div>
+      </div>
+
+      <div class="window-demo" aria-label="Illustration of a tiled desktop">
+        <div class="demo-topbar">
+          <div class="demo-dots"><i></i><i></i><i></i></div>
+          <span>DESKTOP 01</span>
+          <span>LAZYWM</span>
+        </div>
+        <div class="demo-grid">
+          <div class="demo-pane pane-main">
+            <span class="pane-label">01</span>
+            <div class="code-lines">
+              <i></i><i></i><i></i><i></i><i></i><i></i>
+            </div>
+          </div>
+          <div class="demo-column">
+            <div class="demo-pane pane-small">
+              <span class="pane-label">02</span>
+              <div class="terminal-line">&gt; focus_right</div>
+              <div class="terminal-line muted">window focused</div>
+            </div>
+            <div class="demo-pane pane-small active">
+              <span class="pane-label">03</span>
+              <div class="tile-icon"><i></i><i></i><i></i></div>
+            </div>
+          </div>
+        </div>
+        <div class="workspace-strip">
+          <span class="current">1</span><span>2</span><span>3</span><span>4</span>
+          <b>ALT + 1</b>
+        </div>
+      </div>
+    </section>
+
+    <div class="content">
+      <section id="install" class="doc-section">
+        <div class="section-number">01 / GETTING STARTED</div>
+        <h2>Install and launch</h2>
+        <p class="section-intro">LazyWM runs on Windows 11 and requires the .NET 10 Desktop Runtime.</p>
+
+        <div class="steps">
+          <article class="step">
+            <span class="step-number">1</span>
+            <div>
+              <h3>Install .NET</h3>
+              <p>Download and install the <strong>.NET 10 Desktop Runtime</strong> for Windows. You do not need the full developer SDK.</p>
+              <a class="button secondary" href="https://dotnet.microsoft.com/download/dotnet/10.0" target="_blank" rel="noopener noreferrer">Download .NET 10 <span>↗</span></a>
+            </div>
+          </article>
+          <article class="step">
+            <span class="step-number">2</span>
+            <div>
+              <h3>Download LazyWM</h3>
+              <p>Download the latest LazyWM release and extract the archive to a permanent folder. Keep the included <code>Config</code> folder beside the executable.</p>
+              <a class="button secondary" href="https://github.com/kojcinemir/lazywm/releases" target="_blank" rel="noopener noreferrer">View GitHub releases <span>↗</span></a>
+            </div>
+          </article>
+          <article class="step">
+            <span class="step-number">3</span>
+            <div>
+              <h3>Launch LazyWM</h3>
+              <p>Open the extracted folder and double-click <code>lazywm.exe</code>. LazyWM starts in the background and is controlled using its configured hotkeys.</p>
+              <div class="code-block">
+                <button class="copy-button" type="button">Copy</button>
+                <pre><code>.\lazywm.exe</code></pre>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div class="callout">
+          <span class="callout-icon">i</span>
+          <div><strong>Run on sign-in</strong><p>Place a shortcut to <code>lazywm.exe</code> in <code>shell:startup</code> after you are happy with your configuration.</p></div>
+        </div>
+      </section>
+
+      <section id="first-steps" class="doc-section">
+        <div class="section-number">02 / FIRST STEPS</div>
+        <h2>Learn the essentials</h2>
+        <p class="section-intro">Most daily actions use <kbd>Alt</kbd> as the leader key. Vim-style navigation and arrow-key alternatives are both supported.</p>
+        <div class="key-grid">
+          <article><div><kbd>Alt</kbd><i>+</i><kbd>H J K L</kbd><i>or</i><kbd>← ↓ ↑ →</kbd></div><h3>Move focus</h3><p>Focus a window in any direction.</p></article>
+          <article><div><kbd>Alt</kbd><i>+</i><kbd>Shift</kbd><i>+</i><kbd>H J K L</kbd><i>or</i><kbd>← ↓ ↑ →</kbd></div><h3>Swap windows</h3><p>Move the active window through the layout.</p></article>
+          <article><div><kbd>Alt</kbd><i>+</i><kbd>1…8</kbd></div><h3>Change workspace</h3><p>Jump directly to a workspace.</p></article>
+          <article><div><kbd>Alt</kbd><i>+</i><kbd>[ / ]</kbd></div><h3>Resize split</h3><p>Adjust the active layout split ratio.</p></article>
+          <article><div><kbd>Alt</kbd><i>+</i><kbd>Shift</kbd><i>+</i><kbd>S</kbd></div><h3>Toggle stacked mode</h3><p>Stack the windows in the active workspace or return to tiling.</p></article>
+          <article><div><kbd>Alt</kbd><i>+</i><kbd>Ctrl</kbd><i>+</i><kbd>O</kbd></div><h3>Exit cleanly</h3><p>Close LazyWM and restore managed windows to a visible state.</p></article>
+        </div>
+      </section>
+
+      <section id="features" class="doc-section">
+        <div class="section-number">03 / FEATURES</div>
+        <h2>Quietly capable</h2>
+        <p class="section-intro">The core stays lightweight, while the details make a Windows desktop feel intentional.</p>
+        <div class="feature-grid">
+          <article class="feature-card featured">
+            <div class="feature-icon split-icon"><i></i><i></i><i></i></div>
+            <span>CORE</span><h3>Automatic BSP tiling</h3>
+            <p>New windows are placed into a balanced binary split layout, with configurable gaps and split ratios.</p>
+          </article>
+          <article class="feature-card">
+            <div class="feature-icon monitor-icon"><i></i></div>
+            <span>DESKTOP</span><h3>Multi-monitor workspaces</h3>
+            <p>Move focus, windows, and whole workflows naturally across displays.</p>
+          </article>
+          <article class="feature-card">
+            <div class="feature-icon stack-icon"><i></i><i></i><i></i></div>
+            <span>LAYOUT</span><h3>Stacked mode</h3>
+            <p>Group several windows into one tile and jump between them by number.</p>
+          </article>
+          <article class="feature-card">
+            <div class="feature-icon search-icon"><i></i></div>
+            <span>NAVIGATION</span><h3>Application switcher</h3>
+            <p>Find open apps and empty workspaces from a compact keyboard-first interface.</p>
+          </article>
+          <article class="feature-card">
+            <div class="feature-icon frame-icon"><i></i></div>
+            <span>FEEDBACK</span><h3>Active window border</h3>
+            <p>Keep track of focus with configurable color, width, opacity, and rounded corners.</p>
+          </article>
+          <article class="feature-card">
+            <div class="feature-icon reload-icon">↻</div>
+            <span>CONFIG</span><h3>Live configuration</h3>
+            <p>Reload hotkeys and appearance settings without restarting your session.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="hotkeys" class="doc-section">
+        <div class="section-number">04 / HOTKEYS</div>
+        <h2>Keyboard reference</h2>
+        <p class="section-intro">Defaults live in <code>Config/HotKeyConfig.toml</code>. Every key combination can be changed.</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Action</th><th>Default</th><th>Config action</th></tr></thead>
+            <tbody>
+              <tr><td>Open app switcher</td><td><kbd>Alt Shift Space</kbd></td><td><code>open_app_switcher</code></td></tr>
+              <tr><td>Focus left / down / up / right</td><td><kbd>Alt H/J/K/L</kbd></td><td><code>focus_*</code></td></tr>
+              <tr><td>Swap left / down / up / right</td><td><kbd>Alt Shift H/J/K/L</kbd></td><td><code>swap_*</code></td></tr>
+              <tr><td>Switch workspace</td><td><kbd>Alt 1…8</kbd></td><td><code>switch_to_workspace</code></td></tr>
+              <tr><td>Move to workspace</td><td><kbd>Alt Shift 1…8</kbd></td><td><code>move_to_workspace</code></td></tr>
+              <tr><td>Toggle stacked mode</td><td><kbd>Alt Shift S</kbd></td><td><code>toggle_stacked_mode</code></td></tr>
+              <tr><td>Pause window management</td><td><kbd>Alt P</kbd></td><td><code>toggle_paused_mode</code></td></tr>
+              <tr><td>Reload configuration</td><td><kbd>Alt Ctrl R</kbd></td><td><code>reload_configuration</code></td></tr>
+              <tr><td>Exit LazyWM</td><td><kbd>Alt Ctrl O</kbd></td><td><code>exit_application</code></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="workspaces" class="doc-section split-section">
+        <div>
+          <div class="section-number">05 / WORKSPACES</div>
+          <h2>Separate spaces,<br>one flow</h2>
+        </div>
+        <div class="prose">
+          <p>Each monitor has independent workspaces. Switch directly, move the focused window, or ask LazyWM to find the next free workspace automatically.</p>
+          <ul class="check-list">
+            <li>Up to eight directly addressable workspaces</li>
+            <li>Animated workspace transitions</li>
+            <li>Workspace swapping on the active monitor</li>
+            <li>Move windows to a free workspace on another monitor</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="stacked-mode" class="doc-section split-section">
+        <div>
+          <div class="section-number">06 / STACKED MODE</div>
+          <h2>More windows,<br>same space</h2>
+        </div>
+        <div class="prose">
+          <p>Stacked mode lets several applications share one tile. Cycle through the stack, reorder it, or jump to a position using configurable number keys.</p>
+          <div class="mini-command"><kbd>Alt</kbd> + <kbd>S</kbd><span>Cycle the active stack</span></div>
+          <div class="mini-command"><kbd>Ctrl</kbd> + <kbd>1…9</kbd><span>Jump to a stacked window</span></div>
+        </div>
+      </section>
+
+      <section id="configuration" class="doc-section">
+        <div class="section-number">07 / CONFIGURATION</div>
+        <h2>Make it yours</h2>
+        <p class="section-intro">Configuration is plain TOML stored in the <code>Config</code> folder next to the executable.</p>
+        <div class="config-map">
+          <article><code>config.toml</code><p>Logging, animations, and mouse behavior.</p></article>
+          <article><code>HotKeyConfig.toml</code><p>Commands and application shortcuts.</p></article>
+          <article><code>WorkspaceConfig.toml</code><p>Layouts, gaps, and workspace defaults.</p></article>
+          <article><code>WorkspaceIndicatorConfig.toml</code><p>Taskbar indicator layout and colors.</p></article>
+          <article><code>WindowBorderConfig.toml</code><p>Active window border appearance.</p></article>
+          <article><code>AppSwitcherConfig.toml</code><p>Switcher dimensions and styling.</p></article>
+          <article><code>FloatingRulesConfig.toml</code><p>Persistent tiled and floating app rules.</p></article>
+        </div>
+        <div class="callout">
+          <span class="callout-icon">↻</span>
+          <div><strong>Apply changes instantly</strong><p>Press <kbd>Alt</kbd> + <kbd>Ctrl</kbd> + <kbd>R</kbd> to reload configuration while LazyWM is running.</p></div>
+        </div>
+      </section>
+
+      <section id="workspace-config" class="doc-section config-detail">
+        <div class="config-heading">
+          <div><div class="section-number">CONFIG / 01</div><h2>Workspace layout</h2></div>
+          <code>WorkspaceConfig.toml</code>
+        </div>
+        <p>Set workspace modes, inner and outer gaps, and the initial workspace for each monitor.</p>
+        <div class="code-block large">
+          <button class="copy-button" type="button">Copy</button>
+          <pre><code><span class="token-comment"># Workspace layout and spacing</span>
+[workspace]
+    initial_workspace = <span class="token-number">1</span>
+    window_gap = <span class="token-number">0</span>
+    outer_gap = <span class="token-number">4</span>
+    default_mode = <span class="token-string">"tiled"</span></code></pre>
+        </div>
+      </section>
+
+      <section id="indicator-config" class="doc-section config-detail">
+        <div class="config-heading">
+          <div><div class="section-number">CONFIG / 02</div><h2>Workspace indicator</h2></div>
+          <code>WorkspaceIndicatorConfig.toml</code>
+        </div>
+        <p>Control taskbar placement, visible workspaces, app icons, badges, and Windows accent color integration.</p>
+        <div class="code-block large">
+          <button class="copy-button" type="button">Copy</button>
+          <pre><code>[workspace_indicator]
+    indicator_position = <span class="token-string">"center"</span>
+    workspace_display_mode = <span class="token-string">"icons"</span>
+    always_visible_workspaces = <span class="token-number">8</span>
+    show_app_switcher = <span class="token-string">"left"</span>
+    native_windows_accent_color = <span class="token-bool">true</span></code></pre>
+        </div>
+      </section>
+
+      <section id="appearance-config" class="doc-section config-detail">
+        <div class="config-heading">
+          <div><div class="section-number">CONFIG / 03</div><h2>Appearance</h2></div>
+          <code>WindowBorderConfig.toml</code>
+        </div>
+        <p>Choose a built-in scheme such as Gruvbox, Tokyo Night, Nordic, VS Code, Everforest, or Windows 10.</p>
+        <div class="code-block large">
+          <button class="copy-button" type="button">Copy</button>
+          <pre><code>color_scheme = <span class="token-string">"gruvbox"</span>
+
+[window_border]
+    border_width = <span class="token-number">4</span>
+    rounded_borders = <span class="token-bool">true</span>
+    corner_radius = <span class="token-number">12</span>
+    native_windows_accent_color = <span class="token-bool">false</span></code></pre>
+        </div>
+      </section>
+
+      <section id="app-rules" class="doc-section config-detail">
+        <div class="config-heading">
+          <div><div class="section-number">CONFIG / 04</div><h2>Application rules</h2></div>
+          <code>HotKeyConfig.toml</code>
+        </div>
+        <p>Bind a shortcut to an executable. LazyWM focuses it wherever it is open, or launches it when needed.</p>
+        <div class="code-block large">
+          <button class="copy-button" type="button">Copy</button>
+          <pre><code>[application_hotkeys]
+    <span class="token-string">"ALT+T"</span> = <span class="token-string">"WindowsTerminal.exe"</span>
+    <span class="token-string">"ALT+C"</span> = <span class="token-string">"code.exe"</span>
+    <span class="token-string">"ALT+E"</span> = <span class="token-string">"explorer.exe"</span></code></pre>
+        </div>
+      </section>
+
+      <footer>
+        <div class="brand footer-brand">
+          <span class="brand-mark"><span></span><span></span><span></span></span>
+          <span><strong>LazyWM</strong><small>Windows, arranged.</small></span>
+        </div>
+        <p>&copy; 2026 <strong>Emir Kojcin</strong>. All rights reserved.</p>
+        <a href="https://github.com/kojcinemir/lazywm" target="_blank" rel="noopener noreferrer">GitHub project ↗</a>
+        <a href="#top">Back to top ↑</a>
+      </footer>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
