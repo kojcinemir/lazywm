@@ -2,7 +2,7 @@
 
 > [!NOTE]
 >
-> This repository is strictly for LazyWM releases and the project webpage. The source code remains private while I continue to refine the project. At the encouragement of some colleagues, I am sharing the public releases here in the meantime. Thank you for your understanding.
+> This repository is strictly for LazyWM releases and the project webpage. The source code remains private while I continue to refine the project. At the encouragement of some colleagues, I am sharing the public releases here in the meantime.
 
 
 LazyWM is a fast, keyboard-driven tiling window manager for Windows 11 / 10. It
