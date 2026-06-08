@@ -4,7 +4,8 @@ LazyWM is a fast, keyboard-driven tiling window manager for Windows 11 / 10. It
 automatically arranges windows across workspaces and monitors while keeping
 navigation, layouts, and appearance fully configurable.
 
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/9afe81e0-ff34-4fd1-889c-4899aad73d5d" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/c45ca194-dd29-4a1d-b4fe-ee71e6f8afdf" />
+
 
 
 ## Features
