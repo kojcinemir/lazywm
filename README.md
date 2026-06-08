@@ -1,5 +1,10 @@
 # LazyWM
 
+> [!NOTE]
+>
+> This repository is strictly for LazyWM releases and the project webpage. The source code remains private while I continue to refine the project. At the encouragement of some colleagues, I am sharing the public releases here in the meantime. Thank you for your understanding.
+
+
 LazyWM is a fast, keyboard-driven tiling window manager for Windows 11 / 10. It
 automatically arranges windows across workspaces and monitors while keeping
 navigation, layouts, and appearance fully configurable.
@@ -34,9 +39,6 @@ The full .NET SDK is not required.
 2. Download and extract the LazyWM package to a permanent folder.
 3. Keep the included `Config` folder beside `lazywm.exe`.
 4. Double-click `lazywm.exe` to launch LazyWM in the background.
-
-To start LazyWM automatically when you sign in, place a shortcut to
-`lazywm.exe` in the Windows `shell:startup` folder.
 
 ## Essential Hotkeys
 
